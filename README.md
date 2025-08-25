@@ -2,7 +2,7 @@
 
 An API for analyzing drug compound data and adverse effects across similar molecules using ChEMBL and FDA data sources.
 
-This is just the skeleton for a larger project, more to come.
+This is just the skeleton for a larger project, more to come. I have been working on this with Sara Dempster.
 
 ## Overview
 
