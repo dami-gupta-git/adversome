@@ -2,6 +2,8 @@
 
 An API for analyzing drug compound data and adverse effects across similar molecules using ChEMBL and FDA data sources.
 
+This is just the skeleton for a larger project, more to come.
+
 ## Overview
 
 Adversome provides drug compound information and analyzes adverse effects patterns across chemically similar compounds:
