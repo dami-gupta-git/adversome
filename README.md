@@ -13,7 +13,7 @@ Adversome provides drug compound information and analyzes adverse effects patter
 
 - **Drug Compound Search** - Search by drug name or ChEMBL ID
 - **Chemical Structure Data** - SMILES and molecular properties from ChEMBL
-- **Adverse Effect Analysis** - Aggregate adverse events across similar compounds
+- **Adverse Effects** - Get adverse events for a drug
 - **Similarity-Based Safety Profiling** - Find adverse effects common to chemically similar drugs
 - **JSON API** - Simple REST endpoints
 
