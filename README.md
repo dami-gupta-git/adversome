@@ -1,4 +1,4 @@
-# Adversome - Drug Compound Data API
+# Adversome - Drug Compound Data API (Under Construction)
 
 An API for analyzing drug compound data and adverse effects across similar molecules using ChEMBL and FDA data sources.
 
@@ -13,11 +13,10 @@ Adversome provides drug compound information and analyzes adverse effects patter
 
 ## Features
 
-- **Drug Compound Search** - Search by drug name or ChEMBL ID
-- **Chemical Structure Data** - SMILES and molecular properties from ChEMBL
+- **Drug Compound Search** - Search by drug name or ChEMBL ID or SMILES
 - **Adverse Effects** - Get adverse events for a drug
 - **Similarity-Based Safety Profiling** - Find adverse effects common to chemically similar drugs
-- **JSON API** - Simple REST endpoints
+
 
 ## Quick Start
 
@@ -53,7 +52,7 @@ GET /
 ```
 Returns API information and available endpoints.
 
-### Comprehensive Drug Data
+### Drug Data
 ```bash
 GET /api/compound/<identifier>?type=<name|chembl_id>
 ```
@@ -143,7 +142,6 @@ This will test all endpoints and verify:
 ```
 adversome/
 ├── drug_data_api.py      # Main API application
-├── get_drugbank.py       # DrugBank integration (legacy)
 ├── test_api.py           # Comprehensive test suite
 ├── requirements.txt      # Python dependencies
 └── README.md            # This file
@@ -153,10 +151,10 @@ adversome/
 
 The API's main feature is analyzing adverse effects across chemically similar compounds. This helps identify potential safety signals by:
 
-1. Finding compounds with similar chemical structures (using Tanimoto similarity)
-2. Aggregating adverse event data from FDA FAERS for each similar compound  
-3. Providing a comprehensive view of adverse effects common to structurally related drugs
-4. Supporting drug safety research and pharmacovigilance analysis
+1. Getting compound data from CHEM
+2. Finding compounds with similar chemical structures (using Tanimoto similarity)
+3. Aggregating adverse event data from FDA FAERS for each similar compound  
+4. Listing adverse effects common to structurally related drugs
 
 
 ## License
