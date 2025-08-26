@@ -46,68 +46,38 @@ The API will be available at `http://localhost:5001`
 
 ## API Endpoints
 
-### Root Endpoint
-```bash
-GET /
-```
+### GET /
 Returns API information and available endpoints.
 
-### Drug Data
-```bash
-GET /api/compound/<identifier>?type=<name|chembl_id>
-```
-Get aggregated data from all sources for a drug compound.
+### GET /api/compound/\<identifier>
+Get comprehensive drug data combining ChEMBL and FDA adverse event data.
+- **Parameters**: `?type=name|chembl_id` (default: name)
+- **Example**: `curl "http://localhost:5001/api/compound/aspirin"`
 
-**Example:**
-```bash
-curl "http://localhost:5001/api/compound/aspirin"
-```
+### GET /api/chembl/\<chembl_id>
+Get compound data from ChEMBL database.
+- **Example**: `curl "http://localhost:5001/api/chembl/CHEMBL25"`
 
-### ChEMBL Data
-```bash
-GET /api/chembl/<chembl_id>
-```
-Get specific compound data from ChEMBL database.
-
-**Example:**
-```bash
-curl "http://localhost:5001/api/chembl/CHEMBL25"
-```
-
-### Adverse Events
-```bash
-GET /api/adverse-events/<drug_name>?limit=<number>
-```
+### GET /api/adverse-events/\<drug_name>
 Get FDA adverse event data for a drug.
+- **Parameters**: `?limit=number` (default: 10)
+- **Example**: `curl "http://localhost:5001/api/adverse-events/ibuprofen?limit=20"`
 
-**Example:**
-```bash
-curl "http://localhost:5001/api/adverse-events/ibuprofen?limit=20"
-```
-
-### Similar Compounds Adverse Effects
-```bash
-GET /api/similar-compounds/adverse-effects/<compound>?limit=<number>
-```
-Get unique adverse effects across 20 most similar compounds using Tanimoto similarity. Accepts ChEMBL IDs, compound names, or SMILES strings.
-
-**Parameters:**
-- `limit`: Number of similar compounds to analyze (default: 20)
-
-**Examples:**
-```bash
-# By compound name
-curl "http://localhost:5001/api/similar-compounds/adverse-effects/aspirin"
-
-# By ChEMBL ID
-curl "http://localhost:5001/api/similar-compounds/adverse-effects/CHEMBL25"
-
-# By SMILES string
-curl "http://localhost:5001/api/similar-compounds/adverse-effects/CC(=O)Oc1ccccc1C(=O)O"
-```
+### GET /api/similar-compounds/adverse-effects/\<compound>
+Get aggregated adverse effects across chemically similar compounds. (Tanimoto similarity)
+- **Input**: Drug name, ChEMBL ID, or SMILES string
+- **Parameters**: `?limit=number` (default: 20 similar compounds)
+- **Examples**:
+  ```bash
+  # By name
+  curl "http://localhost:5001/api/similar-compounds/adverse-effects/aspirin"
+  
+  # By ChEMBL ID
+  curl "http://localhost:5001/api/similar-compounds/adverse-effects/CHEMBL25"
+  ```
 
 ## Response Format
-All endpoints return JSON responses with consistent structure:
+All endpoints return JSON responses. Check the API root endpoint (`GET /`) for endpoint details and response structure examples.
 
 ## Testing
 
